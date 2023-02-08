@@ -1,81 +1,40 @@
 <?php
 
-    
-
-
     class Cadastro{
 
-        private string $nome;
-        private string $telefone;
-        private string $ndata;
-        private string $login;
-        private string $seha;
+        protected string $codigo;
+        protected string $nome;
+        protected string $endereco;
+        protected string $telefone;
+        protected string $datan;
+        protected string $login;
+        protected string $senha;
 
-        //Inserir a variável que representa Endereço
-
-        public function __construct(string $nome, string $telefone, string $ndata, string $login, string $senha){
-
-            $this->nome     = $nome;
-            $this->telefone = $telefone;
-            $this->ndata    = $ndata;
-            $this->login    = $login;
-            $this->senha    = $senha;
-
-        }//fim do construtor
-
-
-        public function getNome() : string
-        {
-            return $this->nome;
-        }//fim do getNome
-
-        public function setNome(string $nome) : void
-        {
+        public function __construct(int $codigo, string $nome, string $endereco, string $telefone, string $datan, string $login, string $senha){
+            $this->codigo = $codigo;
             $this->nome = $nome;
-        }//fim do setNome
-
-        public function getTelefone() : string
-        {
-            return $this->telefone;
-        }
-
-        public function setTelefone(string $telefone) : void
-        {
+            $this->endereco = $endereco;
             $this->telefone = $telefone;
-        }
-
-        public function getNdata() : string
-        {
-            return $this->ndata;
-        }
-
-        public function setNdata ($ndata) : void
-        {
-            $this->$Ndata = $ndata;
-        }
-
-        public function getLogin() : string
-        {
-            return $this->login;
-        }
-
-        public function setLogin(string $login) : void
-        {
+            $this->datan = $data;
             $this->login = $login;
-        }
-
-        public function getSenha() : string
-        {
-            return $this->senha;
-        }
-
-        public function setSenha(string $seha) : void
-        {
             $this->senha = $senha;
+
+        }
+
+        public function __get(string $dados){
+            return $this->$dados;
+        }
+
+        public function __set(string $nomeVariavel, string $valor) : void
+        {
+            $this->nomeVariavel = $valor;
+        }
+
+        public function __toString() : string
+        {
+            return "<br>Codigo do cliente: ".$this->$codigo."<br>Nome: ".$this->nome."<br>Endereço : ".$this->endereco."<br>Data de nascimento,: ".$this->datan."<br>telefone: ".$this->telefone."<br>login: ".$this->login;
         }
 
 
-
-
-    }//fim da classe Pessoa
+    }
 ?>

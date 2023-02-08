@@ -1,82 +1,34 @@
 <?php
 
+    class Livro{
 
-    class Livros{
+        protected string $codigo;
+        protected string $titulo;
+        protected string $ano;
+        protected string $valor;
+        protected string $unidades;
 
-        private string $titulo;
-        private string $categoria;
-        private string $datadel;
-        private float $codigo;
-        private float $quantidade;
-        private float $venda;
 
-        public function __construct(string $titulo, string $categoria, string $datadel, float $codigo, float $quantidade, float $venda){
-            $this->titulo      = $titulo;
-            $this->categoria     = $categoria;
-            $this->datadel = $datadel;
-            $this->codigo = $codigo; 
-            $this->quantidade = $quantidade;
-            $this->venda = $venda;
-        }
-
-        public function getTitulo() : string
-        {
-            return $this->titulo;
-        }
-
-        public function setTitulo(string $titulo) : void
-        {
-            $this->$titulo;
-        }
-
-        public function getCategoria() : string
-        {
-            return $this->categoria;
-        }
-
-        public function setCategoria(string $categoria) : void
-        {
-            $this->categoria = $categoria;
-        }
-
-        public function getDatadel() : string
-        {
-            return $this->datadel;
-        }
-
-        public function setDatadel(string $datadel) : void
-        {
-            $this->datadel = $datadel;
-        }
-
-        public function getCodigo() : float
-        {
-            return $this->codigo;
-        }
-
-        public function setCodigo(float $codigo) : void
-        {
+        public function __construct(int $codigo, string $titulo, string $ano, string $valor, string $unidades){
             $this->codigo = $codigo;
+            $this->titulo = $titulo;
+            $this->ano = $ano;
+            $this->valor = $valor;
+            $this->unidades = $unidades;
         }
 
-        public function getQuantidade() : float
-        {
-            return $this->quantidade;
+        public function __get(string $dados){
+            return $this->$dados;
         }
 
-        public function setQuantidade(float $quantidade) : void
+        public function __set(string $nomeVariavel, string $valor) : void
         {
-            $this->quantidade = $quantidade;
+            $this->nomeVariavel = $valor;
         }
 
-        public function getVenda() : float
+        public function __toString() : string
         {
-            return $this->venda;
-        }
-
-        public function setVenda(float $venda) : void
-        {
-            $this->venda = $venda;
+            return "<br>Codigo do cliente: ".$this->$codigo."<br>Titulo do livro: ".$this->titulo."<br>Ano que foi lançou: ".$this->ano."<br>Valor do livro: ".$this->valor."<br>Quantas unidades tem: ".$this->unidades;
         }
 
 
